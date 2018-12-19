@@ -1,0 +1,24 @@
+{
+  "name": "jsdom",
+  "version": "1.0.0",
+  "description": "1. Log document object to the console. Check which children document object has. Go to 3 levels deeper and discover their children as     well.\r 1. Change background of body element to `#77f2eb`.\r 2. Find `<h1>` element and change `font-size` of this element to `50px`;\r 3. Find `#footer` element and change some property here :)\r 4. Find `.grid-row` element inside `section` element. Add some green border to all children of this element.\r 4. Find all `<a>` elements on the page and change their color to \"orange\".\r 5. Find parent element of .site-navigation element and add red outline to it.\r 6. Find all `<p>` elements on the page near the `<img>` elements. Change font-size of these elements to `20px`.\r 7. Find all `<p>` elements which doesn't have `<img>` siblings. Add some outline for these elements.\r 8. Find all `<a>` elements which are not located in `<nav>` element. Add some border for these elements\r 9. Create `class` .hidden and add this class to `.banner-image` element",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgnatSemchuk/jsdom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgnatSemchuk/jsdom/issues"
+  },
+  "homepage": "https://github.com/IgnatSemchuk/jsdom#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "run-sequence": "^2.2.1"
+  }
+}
