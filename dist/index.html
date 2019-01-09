@@ -2,119 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>slider</title>
-    <style>
-        .viewer {
-            width: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <div class="slider"></div>
-    <script>
-
-        function Slider(slider, slides) {
-            const sliderPlace = document.querySelector(`.${slider}`); 
-            let currentSlide = 0;
-            let slideList = getClone(slides);
-
-            const prev = document.createElement('button');
-            prev.classList.add('preview-slide');
-            prev.innerText = 'Prev';
-
-            const img = document.createElement('img');
-            img.classList.add('viewer');
-            img.setAttribute('src', slideList[currentSlide]);
-
-            const next = document.createElement('button');
-            next.classList.add('next-slide');
-            next.innerText = 'Next';
-
-            sliderPlace.appendChild(prev);
-            sliderPlace.appendChild(img);
-            sliderPlace.appendChild(next);
-
-            function getClone(itemList) {
-                const temp = [];
-                for (var i = 0; itemList.length >i; i++) {
-                  temp[i] = itemList[i];
-                }
-                return temp;
-            }
-
-              //====================================================//
-
-              getCurrent = function() {
-                return slideList[currentSlide];
-              };
-
-              updateSlide = function() {
-                sliderPlace.querySelector('img').setAttribute('src', getCurrent());
-              }
-
-              this.goToNext = function() {
-                currentSlide = (currentSlide === slideList.length-1)
-                  ? 0
-                  : currentSlide + 1;
-                updateSlide();
-                return this;
-              };
-
-              this.goToPrev = function() {
-                currentSlide = (currentSlide === 0)
-                  ? slideList.length - 1 
-                  : currentSlide - 1;
-                updateSlide();
-                return this;
-              };
-
-              this.goToNth = function(positionSlide) {
-                if (positionSlide - 1 >= 0 && positionSlide - 1 < slideList.length) {
-                  currentSlide = positionSlide;
-                } else { 
-                  console.log(`ERROR\nslide number must be within [1, ${slideList.length}]`);
-                }
-                updateSlide();
-                return this;
-              };
-
-              this.add = function(slide, positionSlide) {
-                slideList.splice(positionSlide, 0, slide);
-                return this;
-              };
-
-              this.del = function(positionSlide) {
-                slideList.splice(positionSlide, 1);
-                return this;
-              };
-
-              sliderPlace.addEventListener('click', (event) => {
-                if (event.target.matches('.preview-slide')) {
-                    this.goToPrev();
-                }
-
-                if (event.target.matches('.next-slide')) {
-                    this.goToNext();
-                }
-
-              });
-
-            }
-
-            const catImages = [
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
-              "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
-            ];
-
-            new Slider('slider-1', catImages);
-            new Slider('slider-2', catImages);
-    </script>
+    <div class="slider-container"></div>
 </body>
 </html>

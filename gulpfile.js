@@ -11,16 +11,16 @@ const clean         = require('gulp-clean');
 const runSequence   = require('run-sequence');
 const notify        = require("gulp-notify");
 
-const srcDir = '/src'
-const distDir = '/dist';
+const srcDir = 'src'
+const distDir = 'dist';
 
-gulp.task('reloadBrowser', function (cb) {
+gulp.task('reloadBrowser', function (callback) {
   browserSync.reload();
-  cb();
+  callback();
 });
 
 gulp.task('styles', () => {
-    gulp.src(`${srcDir}**/*.scss`)
+    gulp.src(`${srcDir}/scss/main.scss`)
         .pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
         .pipe(autoprefixer(['last 15 versions']))
         .pipe(gulp.dest(`${distDir}/css`))
@@ -49,26 +49,25 @@ gulp.task('cleanDist', () =>
 
 gulp.task('js', () => {
     gulp.src(`${srcDir}/**/*.js`)
-        .pipe(concat('scripts.js'))
+        .pipe(concat('script.js'))
         .pipe(gulp.dest(`${distDir}/js`))
 });
 
-gulp.task('build', function(cb){
+gulp.task('build', (cb) => {
     runSequence('cleanDist', ['images', 'js', 'styles', 'fonts', 'html'], cb);
 });
 
-gulp.task('watch', ['build'], function() {
+gulp.task('watch', function() {
     browserSync.init({
         server: {
             baseDir: distDir
-        },
-        notify: false
+        }
     });
     gulp.watch(`${srcDir}/*.html`, ['html', 'reloadBrowser']);
-    gulp.watch(`${srcDir}/scss/**/*.scss`, ['styles', 'reloadBrowser']);
-    gulp.watch(['libs/**/*.js', `${srcDir}/js/common.js`], ['js', 'reloadBrowser']);
+    gulp.watch(`${srcDir}/**/*.scss`, ['styles', 'reloadBrowser']);
+    gulp.watch(['libs/**/*.js', `${srcDir}/**/*.js`], ['js', 'reloadBrowser']);
     gulp.watch(`${srcDir}/img/**/*`), ['images', 'reloadBrowser'];
     gulp.watch(`${srcDir}/fonts/**/*`), ['fonts', 'reloadBrowser'];
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['build', 'watch']);
