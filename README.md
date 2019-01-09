@@ -1,6 +1,7 @@
 # Slider
-Adaptive slider for free used and modified. Was written on native JS, SCSS. To see demo click here
+Adaptive slider for free used and modified. Was written on native JS, SCSS. To see demo click [here][1]
 
+[1]: https://ignatsemchuk.github.io/slider/
 <img src="https://raw.githubusercontent.com/IgnatSemchuk/slider/master/src/images/preview-slider.jpg">
 
 ## How to use
