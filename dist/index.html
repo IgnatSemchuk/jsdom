@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>slider</title>
     <link rel="stylesheet" href="css/main.css">
+    <script>
+        const catImages = [
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
+        "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
+        ];
+    </script>
     <script src="js/script.js"></script>
 </head>
 <body>
-    <div class="slider-container"></div>
+    <div class="slider-container">
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                new getSlider('slider-container', catImages);
+            });
+        </script>
+    </div>
 </body>
 </html>
